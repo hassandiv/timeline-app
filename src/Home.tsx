@@ -96,10 +96,12 @@ const Home = () => {
 
   const [isOpen, setIsOpen] = useState<boolean>(true)
     const [events, setEvents] = useState<IEvents>([
-        { title: 'How it works?', description: 'A new event will be added every 5 seconds until the total events is 4.', time: '13:00 - 30 Oct', id: 1 },
+        { title: 'How it works?', description: 'A new event will be added every 5 seconds until the total events is 6.', time: '13:00 - 30 Oct', id: 1 },
         { title: 'How to add a new event?', description: 'Wait untill all events added, then add a new event using the form on the sidebar.', time: '13:35 - 30 Oct', id: 2 },
         { title: 'How to remove an event?', description: 'Hover over over an event click on the remove button and it should be removed.', time: '16:10 - 30 Oct', id: 3 },
-        { title: 'Events order from bottom to top.', description: 'The most recent event is added to the top with date and time.', time: '17:30 - 30 Oct', id: 4 },    
+        { title: 'Events order from bottom to top.', description: 'The most recent event is added to the top with date and time.', time: '17:30 - 30 Oct', id: 4 },
+        { title: 'More events to be loaded', description: 'This is event number 5.', time: '18:10 - 30 Oct', id: 5 },
+        { title: 'Last auto event is loaded.', description: 'The last automated event is loaded, use the form to add addtional events.', time: '09:30 - 31 Oct', id: 6 },
     ])
 
     return (
