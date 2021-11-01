@@ -271,11 +271,11 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
     useEffect(() => {
         let ms: number = 5000
         let i: number = 0
-        let displayedEvents: IEventsProps = props.slice(i, 2)
+        let displayedEvents: IEventsProps = props.slice(i, 0)
         setEventsProps(displayedEvents)
             const interval: NodeJS.Timeout = setInterval((): void => {
-                if (++i <= props.length - 2) {
-                    displayedEvents = props.slice(0, i + 2)
+                if (++i <= props.length) {
+                    displayedEvents = props.slice(0, i + 0)
                     setEventsProps(displayedEvents)
                 }
             }, ms)
