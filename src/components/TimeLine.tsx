@@ -277,9 +277,7 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
                 if (++i <= props.length - 2) {
                     displayedEvents = props.slice(0, i + 2)
                     setEventsProps(displayedEvents)
-                } else (
-                    clearInterval(interval)
-                )
+                }
             }, ms)
         return () => { clearInterval(interval) }
     }, [])
