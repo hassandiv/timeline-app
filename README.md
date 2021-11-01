@@ -4,7 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+clone porject and start, you can run:
+
+### `git clone git@github.com/hassandiv/timeline-app.git`
+
+### `npm install`
 
 ### `npm start`
 
