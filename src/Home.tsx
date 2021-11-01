@@ -6,15 +6,12 @@ import img from './img/wallpaper.jpeg'
 
 //CSS
 const StyledMain = styled.main`
-    position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: start;
     background-color: #000;
-    overflow: hidden;
-    z-index: 1;
 `
 const StyledAside = styled.aside<IWidth>`
     display: flex;
@@ -26,19 +23,7 @@ const StyledAside = styled.aside<IWidth>`
     max-width: 100%;
     transition: 0.5s all;
     overflow: hidden;
-    //color: #fff;
-    //background-color: #131313;
-    background-image: url(${img});
-    background-repeat: no-repeat;
-    background-size: cover;
-    &:after {
-        content: "";
-        background-color: rgb(0 0 0 / 85%);
-        height: 100%;
-        width: ${props => props.desktopWidth};
-        max-width: 100%;
-        position: fixed;
-    }
+    background-color: #131313;
     @media(max-width: 1280px) {
         position: absolute;
         top: 0;
@@ -111,7 +96,7 @@ const Home = () => {
 
   const [isOpen, setIsOpen] = useState<boolean>(true)
     const [events, setEvents] = useState<IEvents>([
-        { title: 'How it works?', description: 'A new event will be added every 5 seconds until the total events is 5.', time: '13:00 - 30 Oct', id: 1 },
+        { title: 'How it works?', description: 'A new event will be added every 5 seconds until the total events is 4.', time: '13:00 - 30 Oct', id: 1 },
         { title: 'How to add a new event?', description: 'Wait untill all events added, then add a new event using the form on the sidebar.', time: '13:35 - 30 Oct', id: 2 },
         { title: 'How to remove an event?', description: 'Hover over over an event click on the remove button and it should be removed.', time: '16:10 - 30 Oct', id: 3 },
         { title: 'Events order from bottom to top.', description: 'The most recent event is added to the top with date and time.', time: '17:30 - 30 Oct', id: 4 },    
