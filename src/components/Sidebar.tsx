@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import styled from 'styled-components'
 import css from '../img/css.png'
-import jsx from '../img/jsx.png'
+import tsx from '../img/tsx.png'
 import react from '../img/react.png'
 import typescript from '../img/typescript.png'
 
@@ -88,9 +88,10 @@ const StyledLogo = styled.img`
     height: auto;
     filter: invert(1);
 `
-const StyledLogoJsx = styled.img`
-    width: 43px;
+const StyledLogoTsx = styled.img`
+    width: 37px;
     height: auto;
+    filter: invert(1);
 `
 const StyledDiv = styled.div`
     display: flex;
@@ -160,7 +161,7 @@ const Sidebar: FC<newEventsProps> = ({ eventsProps, setEventsProps }) => {
                 <StyledDiv>
                     <StyledLogo src={react} />
                     <StyledLogo src={typescript} />
-                    <StyledLogoJsx src={jsx} />
+                    <StyledLogoTsx src={tsx} />
                     <StyledLogo src={css} />
                 </StyledDiv>
                 <StyledP>All events are sorted by time/date from bottom to top.</StyledP>

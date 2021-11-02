@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect, useRef } from 'react'
 import styled, {keyframes} from 'styled-components'
-import { setInterval } from 'timers'
 
 const StyledUl = styled.ul<LiHeight>`
     position: relative;
@@ -12,6 +11,7 @@ const StyledUl = styled.ul<LiHeight>`
     margin-top: auto;
     min-height: 95%;
     width: 900px;
+    transition: 0.5s all;
     &:after {
         content: "";
         position: absolute;
@@ -120,6 +120,11 @@ const StyledLi = styled.li`
             border-radius: 100%;
             z-index: 1;
         }
+    }
+    &:hover {
+        background-color: #131313;
+        padding: 10px;
+        border-radius: 5px;
     }
     &:hover ${StyledSpan}{
         opacity: 1;
@@ -260,7 +265,7 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
         setLiHeight(ref?.current?.offsetTop + ref?.current?.offsetHeight)
     })
 
-    //new array + handleremove event + load more events after 5 seconds
+    //new array + handleremove event
     const revEvents = [...props].reverse()
 
     const handleRemoveItem = (idx: number): void => {
@@ -268,6 +273,7 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
         setEventsProps(revEvents.reverse()) //update my original props with its original order 
     }
 
+    //.slice makes a new array and slice out 6 itteration + load more events after 5 seconds .slice(0, i + 0) start from itteration 0 then add 1 (0, 1), (0, 2) ..etc
     useEffect(() => {
         let ms: number = 5000
         let i: number = 0
