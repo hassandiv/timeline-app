@@ -275,7 +275,7 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
 
     //.slice makes a new array and slice out 6 itteration + load more events after 5 seconds .slice(0, i + 0) start from itteration 0 then add 1 (0, 1), (0, 2) ..etc
     useEffect(() => {
-        const props = ([ //remove warning error so must add ou array in the useEffect hook
+        const props = ([ //remove warning added our array in the useEffect hook
         { title: 'How it works?', description: 'A new event will be added every 5 seconds until the total events is 6.', time: '13:00 - 30 Oct', id: 1 },
         { title: 'How to add a new event?', description: 'Wait untill all events added, then add a new event using the form on the sidebar.', time: '13:35 - 30 Oct', id: 2 },
         { title: 'How to remove an event?', description: 'Hover over over an event click on the remove button and it should be removed.', time: '16:10 - 30 Oct', id: 3 },
