@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, useRef } from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled from 'styled-components'
 
 const StyledUl = styled.ul<LiHeight>`
     position: relative;
@@ -263,7 +263,7 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
 
     useEffect((): void => {
         setLiHeight(ref?.current?.offsetTop + ref?.current?.offsetHeight)
-    })
+    }, [])
 
     //new array + handleremove event
     const revEvents = [...props].reverse()
@@ -275,18 +275,26 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
 
     //.slice makes a new array and slice out 6 itteration + load more events after 5 seconds .slice(0, i + 0) start from itteration 0 then add 1 (0, 1), (0, 2) ..etc
     useEffect(() => {
+        const props = ([ //remove warning error so must add ou array in the useEffect hook
+        { title: 'How it works?', description: 'A new event will be added every 5 seconds until the total events is 6.', time: '13:00 - 30 Oct', id: 1 },
+        { title: 'How to add a new event?', description: 'Wait untill all events added, then add a new event using the form on the sidebar.', time: '13:35 - 30 Oct', id: 2 },
+        { title: 'How to remove an event?', description: 'Hover over over an event click on the remove button and it should be removed.', time: '16:10 - 30 Oct', id: 3 },
+        { title: 'Events order from bottom to top.', description: 'The most recent event is added to the top with date and time.', time: '17:30 - 30 Oct', id: 4 },
+        { title: 'More events to be loaded', description: 'This is event number 5.', time: '18:10 - 30 Oct', id: 5 },
+        { title: 'Last auto event is loaded.', description: 'The last automated event is loaded, use the form to add addtional events.', time: '09:30 - 31 Oct', id: 6 },
+        ])
         let ms: number = 5000
         let i: number = 0
         let displayedEvents: IEventsProps = props.slice(6)
         setEventsProps(displayedEvents)
-            const interval: NodeJS.Timeout = setInterval((): void => {
-                if (++i <= props.length) {
-                    displayedEvents = props.slice(0, i + 0)
-                    setEventsProps(displayedEvents)
-                }
-            }, ms)
+        const interval: NodeJS.Timeout = setInterval((): void => {
+            if (++i <= props.length) {
+                displayedEvents = props.slice(0, i + 0)
+                setEventsProps(displayedEvents)
+            }
+        }, ms)
         return () => { clearInterval(interval) }
-    }, [])
+    }, [setEventsProps])
 
     return (
         

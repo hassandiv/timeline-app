@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import TimeLine from './components/TimeLine'
 import Sidebar from './components/Sidebar'
-import img from './img/wallpaper.jpeg'
 
 //CSS
 const StyledMain = styled.main`
@@ -94,7 +93,7 @@ type IEvents = {
 
 const Home = () => {
 
-  const [isOpen, setIsOpen] = useState<boolean>(true)
+    const [isOpen, setIsOpen] = useState<boolean>(true)
     const [events, setEvents] = useState<IEvents>([
         { title: 'How it works?', description: 'A new event will be added every 5 seconds until the total events is 6.', time: '13:00 - 30 Oct', id: 1 },
         { title: 'How to add a new event?', description: 'Wait untill all events added, then add a new event using the form on the sidebar.', time: '13:35 - 30 Oct', id: 2 },
