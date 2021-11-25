@@ -283,7 +283,7 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
         { title: 'More events to be loaded', description: 'This is event number 5.', time: '18:10 - 30 Oct', id: 5 },
         { title: 'Last auto event is loaded.', description: 'The last automated event is loaded, use the form to add addtional events.', time: '09:30 - 31 Oct', id: 6 },
         ])
-        let ms: number = 5000
+        let ms: number = 500
         let i: number = 0
         let displayedEvents: IEventsProps = props.slice(6)
         setEventsProps(displayedEvents)
@@ -291,7 +291,10 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
             if (++i <= props.length) {
                 displayedEvents = props.slice(0, i + 0)
                 setEventsProps(displayedEvents)
+            } else {
+                clearInterval(interval)
             }
+            console.log('displayedEvents', displayedEvents)
         }, ms)
         return () => { clearInterval(interval) }
     }, [setEventsProps])
@@ -304,11 +307,11 @@ const TimeLine: FC<newEventsProps> = ({ props, setEventsProps }) => {
             {revEvents.length > 0 && revEvents.map((entry: IEventProps, idx: number) => {
                 return (
                     <StyledLi key={entry.id} ref={ref}>
-                    <StyledSpan onClick={() => handleRemoveItem(idx)}></StyledSpan>
-                    <StyledTime>{entry.time}</StyledTime>
-                    <StyledH2>{entry.title}</StyledH2>
-                    <StyledP>{entry.description}</StyledP>
-                </StyledLi>
+                        <StyledSpan onClick={() => handleRemoveItem(idx)}></StyledSpan>
+                        <StyledTime>{entry.time}</StyledTime>
+                        <StyledH2>{entry.title}</StyledH2>
+                        <StyledP>{entry.description}</StyledP>
+                    </StyledLi>
             )})}
         </StyledUl>
     )
